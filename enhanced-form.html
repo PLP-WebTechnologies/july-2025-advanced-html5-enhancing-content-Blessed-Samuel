@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced HTML5 Form</title>
+    <!-- Tailwind CSS CDN for a clean and responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for accessibility */
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db; /* gray-300 */
+            transition: border-color 0.2s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb; /* blue-600 */
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); /* blue-600 transparent */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <!-- Header: Semantic and accessible -->
+    <header class="bg-white shadow-sm p-6 text-center">
+        <h1 class="text-3xl font-bold">Enhanced Registration Form</h1>
+        <p class="text-gray-500 mt-2">A showcase of modern HTML5 features and accessibility best practices.</p>
+    </header>
+
+    <main class="container mx-auto p-8">
+        <!-- Well-structured content using lists and a table -->
+        <section class="bg-white p-8 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Why Register with Us?</h2>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 mb-6">
+                <li>Access to exclusive content and programs.</li>
+                <li>Stay updated on the latest leadership initiatives.</li>
+                <li>Join a global community of innovators.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3">Our Core Values</h3>
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 border-b border-gray-300">
+                        <th class="p-4 font-semibold text-gray-700">Value</th>
+                        <th class="p-4 font-semibold text-gray-700">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-200">
+                        <td class="p-4 text-gray-600">Integrity</td>
+                        <td class="p-4 text-gray-600">Upholding honesty and strong moral principles.</td>
+                    </tr>
+                    <tr class="border-b border-gray-200">
+                        <td class="p-4 text-gray-600">Innovation</td>
+                        <td class="p-4 text-gray-600">Driving creative solutions for a better future.</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 text-gray-600">Community</td>
+                        <td class="p-4 text-gray-600">Building a supportive and collaborative network.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Media element -> Audio -->
+        <section class="bg-white p-8 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4">Listen to Our Mission Statement</h2>
+            <p class="text-gray-600 mb-4">A brief audio clip about our commitment to youth development.</p>
+            <audio controls class="w-full">
+                <!-- Using a placeholder audio file that is royalty-free -->
+                <source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- The main form -->
+        <section class="bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 text-center">Register Now</h2>
+            <form action="#" method="post" class="space-y-6">
+
+                <!-- Fieldset for personal information -->
+                <fieldset class="border border-gray-300 p-6 rounded-lg">
+                    <legend class="text-lg font-bold text-gray-700 px-2">Personal Information</legend>
+                    <div class="form-group mt-4">
+                        <label for="full_name">Full Name</label>
+                        <!-- 'required' and 'autocomplete' attributes for validation and usability -->
+                        <input type="text" id="full_name" name="full_name" class="form-input" placeholder="e.g., Jane Doe" required autocomplete="name">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="email">Email Address</label>
+                        <!-- type of email provides basic email format validation -->
+                        <input type="email" id="email" name="email" class="form-input" placeholder="e.g., jane.doe@example.com" required autocomplete="email">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="phone">Phone Number</label>
+                        <!-- 'pattern' attribute for specific format validation -->
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g., 555-123-4567" autocomplete="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                        <p class="text-sm text-gray-500 mt-1">Format: 555-123-4567</p>
+                    </div>
+                </fieldset>
+
+                <!-- Fieldset for account details -->
+                <fieldset class="border border-gray-300 p-6 rounded-lg">
+                    <legend class="text-lg font-bold text-gray-700 px-2">Account Details</legend>
+                    <div class="form-group mt-4">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-input" required minlength="8">
+                        <p class="text-sm text-gray-500 mt-1">Minimum 8 characters</p>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="age">Age</label>
+                        <!-- tyof of number for number-only input and min/max validation -->
+                        <input type="number" id="age" name="age" class="form-input" min="16" max="99" required>
+                        <p class="text-sm text-gray-500 mt-1">Must be at least 16 years old</p>
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="membership_id">Membership ID</label>
+                        <!-- 'readonly' attribute prevents user from changing this field -->
+                        <input type="text" id="membership_id" name="membership_id" class="form-input bg-gray-200 cursor-not-allowed" value="TYIL-MEMBER-XXXX" readonly>
+                    </div>
+                </fieldset>
+
+                <!-- Fieldset for additional information -->
+                <fieldset class="border border-gray-300 p-6 rounded-lg">
+                    <legend class="text-lg font-bold text-gray-700 px-2">Additional Information</legend>
+                    <div class="form-group mt-4">
+                        <label for="start_date">Start Date</label>
+                        <!-- type of date for a date picker input -->
+                        <input type="date" id="start_date" name="start_date" class="form-input" required>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="role">Your Role</label>
+                        <!-- select element for a dropdown list -->
+                        <select id="role" name="role" class="form-input" required>
+                            <option value="">-- Please select a role --</option>
+                            <option value="student">Student</option>
+                            <option value="professional">Professional</option>
+                            <option value="mentor">Mentor</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <label for="comments">Comments</label>
+                        <!-- textarea input field -->
+                        <textarea id="comments" name="comments" class="form-input" placeholder="Any additional comments?" rows="4"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Radio buttons and checkboxes -->
+                <div class="flex items-center space-x-4 mt-6">
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="preference" value="email" class="form-radio text-blue-600">
+                        <span class="ml-2">Email updates</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="preference" value="sms" class="form-radio text-blue-600">
+                        <span class="ml-2">SMS updates</span>
+                    </label>
+                </div>
+
+                <div class="flex items-center mt-4">
+                    <label for="terms" class="inline-flex items-center">
+                        <input type="checkbox" name="terms" class="form-checkbox text-blue-600" required>
+                        <span class="ml-2">I agree to the terms and conditions.</span>
+                    </label>
+                </div>
+
+                <!-- Form buttons -->
+                <div class="flex space-x-4 mt-6">
+                    <button aria-label="form-button" type="submit" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-200">
+                        Submit
+                    </button>
+                    <button type="reset" class="bg-gray-300 text-gray-800 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-400 transition-colors duration-200">
+                        Reset
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- footer section -->
+    <footer class="bg-white shadow-sm mt-8 p-6 text-center text-sm text-gray-500">
+        <p>&copy; 2025 TYIBlessed Samuel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
